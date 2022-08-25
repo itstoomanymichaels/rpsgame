@@ -12,7 +12,7 @@ function getComputerChoice() {
 function playerSelection() {
     let choice = prompt("Which element do you choose?").toLowerCase();
     if (choice !== "earth" && choice !== "water" && choice !== "fire") {
-        console.log("Not a valid choice! Stop cheating!");
+        throw new TypeError("Not a valid choice! Stop cheating!");
     } else {
         return choice;
     }
@@ -24,63 +24,66 @@ function playRound() {
     if (computer === "fire") {
         switch (player) {
             case "earth":
-                console.log("You lose! Fire beats earth.");
+                return "You lose! Fire beats earth.";
                 break;
             case "fire":
-                console.log("It's a draw!");
+                return "It's a draw!";
                 break;
             case "water":
-                console.log("You win! Water beats fire.");
+                return "You win! Water beats fire.";
                 break;
         }
     } else if (computer === "earth") {
         switch (player) {
             case "earth":
-                console.log("It's a draw!");
+                return "It's a draw!";
                 break;
             case "fire":
-                console.log("You win! Fire beats earth.");
+                return "You win! Fire beats earth.";
                 break;
             case "water":
-                console.log("You lose! Earth beats water.");
+                return "You lose! Earth beats water.";
                 break;
         }
     } else {
         switch (player) {
             case "earth":
-                console.log("You win! Earth beats water.");
+                return "You win! Earth beats water.";
                 break;
             case "fire":
-                console.log("You lose! Water beats fire.");
+                return "You lose! Water beats fire.";
                 break;
             case "water":
-                console.log("It's a draw!");
+                return "It's a draw!";
                 break;
         }
     }
 }
 
-playRound();
-/*
 function game() {
     let playerw = 0;
     let computerw = 0;
     for (let i = 0; i < 5; i++) {
         let winner = playRound();
-        if (winner.contains("win")) {
+        if (winner.includes("win")) {
             playerw += 1;
-        } else if (winner.contains("lose")) {
+            console.log(winner);
+        } else if (winner.includes("lose")) {
             computerw += 1;
+            console.log(winner);
+        } else {
+            console.log(winner);
         }
     }
     if (playerw > computerw) {
-        console.log("Congrats! You won the game!");
-    } else if (playerw < compueterw) {
-        console.log("Shucks, you lost! That's too bad.");
+        console.log(`Congrats! You won the game! The score was
+        ${playerw} - ${computerw}.`);
+    } else if (playerw < computerw) {
+        console.log(`Shucks, you lost! That's too bad. The score was
+        ${playerw} - ${computerw}.`);
     } else {
-        console.log("It's a draw! Great choices from both sides!");
+        console.log(`It's a draw! Great choices from both sides! The score was
+        ${playerw} - ${computerw}.`);
     }
 }
-
 game();
-*/
