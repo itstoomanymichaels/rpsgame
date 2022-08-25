@@ -1,2 +1,2 @@
 # rpsgame
-Rock, Paper, Scissors Shoo
+Earth, Water, Fire
